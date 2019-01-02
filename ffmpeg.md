@@ -46,3 +46,9 @@ ffmpeg -f mpegts -i $ts_name \
            >> ${log_directory}/ffmpeg.log 2>&1
        ;;
 ```
+
+### Restream to pipe / port
+```
+ffmpeg -re -i $INPUT -f mpegts pipe:1
+ffmpeg -re -i $INPUT -f mpegts pipe:1 | nc $HOST $PORT
+```
